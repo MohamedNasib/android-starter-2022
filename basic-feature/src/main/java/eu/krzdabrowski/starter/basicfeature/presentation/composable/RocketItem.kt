@@ -14,6 +14,7 @@ import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import eu.krzdabrowski.starter.basicfeature.R
 import eu.krzdabrowski.starter.basicfeature.presentation.model.RocketDisplayable
+import eu.krzdabrowski.starter.core.Helpers.DateFormatter
 import eu.krzdabrowski.starter.core.design.Typography
 
 @Composable
@@ -44,6 +45,14 @@ fun RocketItem(
 
             Text(
                 text = stringResource(
+                    id = R.string.rocket_country,
+                    rocket.country,
+                ),
+                style = Typography.bodyMedium,
+            )
+
+            Text(
+                text = stringResource(
                     id = R.string.rocket_cost_per_launch,
                     rocket.costPerLaunchInMillions,
                 ),
@@ -53,7 +62,7 @@ fun RocketItem(
             Text(
                 text = stringResource(
                     id = R.string.rocket_first_flight,
-                    rocket.firstFlightDate,
+                    DateFormatter().convertDateToNaturalFormat(rocket.firstFlightDate),
                 ),
                 style = Typography.bodyMedium,
             )
